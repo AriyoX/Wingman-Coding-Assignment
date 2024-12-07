@@ -19,7 +19,9 @@ const SortControls: React.FC = () => {
     <select
       value={sortBy ? `${sortBy}-${sortOrder}` : ''}
       onChange={(e) => handleSortChange(e.target.value)}
-      className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
+                bg-white dark:bg-gray-700 text-gray-900 dark:text-white
+                focus:outline-none focus:ring-2 focus:ring-blue-500"
     >
       <option value="">Sort by</option>
       <option value="price-asc">Price: Low to High</option>

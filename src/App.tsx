@@ -6,6 +6,7 @@ import ProductCard from './components/ProductCard';
 import SearchBar from './components/SearchBar';
 import SortControls from './components/SortControls';
 import Pagination from './components/Pagination';
+import ThemeToggle from './components/ThemeToggle';
 import { Loader2 } from 'lucide-react';
 
 function App() {
@@ -22,16 +23,16 @@ function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="animate-spin" size={48} />
+      <div className="min-h-screen flex items-center justify-center dark:bg-gray-900">
+        <Loader2 className="animate-spin dark:text-white" size={48} />
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-red-500">Error: {error}</p>
+      <div className="min-h-screen flex items-center justify-center dark:bg-gray-900">
+        <p className="text-red-500">{error}</p>
       </div>
     );
   }
@@ -43,10 +44,13 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 px-4 py-8">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 px-4 py-8 transition-colors">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <SearchBar />
+          <div className="flex items-center gap-4 w-full sm:w-auto">
+            <SearchBar />
+            <ThemeToggle />
+          </div>
           <SortControls />
         </div>
         
@@ -58,7 +62,7 @@ function App() {
 
         {filteredProducts.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-500">No products found</p>
+            <p className="text-gray-500 dark:text-gray-400">No products found</p>
           </div>
         ) : (
           <Pagination />

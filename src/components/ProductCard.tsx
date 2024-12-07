@@ -15,15 +15,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         className={`${
           index < Math.floor(rating)
             ? 'text-yellow-400 fill-yellow-400'
-            : 'text-gray-300'
+            : 'text-gray-300 dark:text-gray-600'
         }`}
       />
     ));
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      <div className="relative pb-[100%]">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+      <div className="relative pb-[100%] bg-white">
         <img
           src={product.image}
           alt={product.title}
@@ -31,14 +31,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         />
       </div>
       <div className="p-4">
-        <h3 className="text-lg font-semibold line-clamp-2 mb-2">{product.title}</h3>
+        <h3 className="text-lg font-semibold line-clamp-2 mb-2 dark:text-white">{product.title}</h3>
         <div className="flex items-center mb-2">
           {renderStars(product.rating.rate)}
-          <span className="ml-2 text-sm text-gray-600">
+          <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">
             ({product.rating.count} reviews)
           </span>
         </div>
-        <p className="text-xl font-bold text-gray-900">${product.price.toFixed(2)}</p>
+        <p className="text-xl font-bold text-gray-900 dark:text-white">${product.price.toFixed(2)}</p>
       </div>
     </div>
   );
