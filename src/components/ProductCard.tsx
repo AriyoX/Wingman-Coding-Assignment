@@ -22,16 +22,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <div className="group bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
       <div className="relative pb-[100%] bg-white">
         <img
           src={product.image}
           alt={product.title}
-          className="absolute inset-0 w-full h-full object-contain p-4"
+          className="absolute inset-0 w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
         />
       </div>
       <div className="p-4">
-        <h3 className="text-lg font-semibold line-clamp-2 mb-2 dark:text-white">{product.title}</h3>
+        <h3 className="text-lg font-semibold line-clamp-2 mb-2 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+          {product.title}
+        </h3>
         <div className="flex items-center mb-2">
           {renderStars(product.rating.rate)}
           <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">
